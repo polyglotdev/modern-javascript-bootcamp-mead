@@ -1,18 +1,20 @@
-const notes = ['Note 1', 'Note 2', 'Note 3', 'Note 4', 'Note 5', 'Note 6']
+const notes = [
+  {
+    title: `My next trip`,
+    body: `I would like to go to Spain`
+  },
+  {
+    title: `Life and Times of Dom`,
+    body: `The things we do for love`
+  },
+  {
+    title: `Being better`,
+    body: `You are what you tell yourself. So be fucking awesome.`
+  }
+]
 
-notes.push('Note 7')
-// notes.pop()
+const found = notes.find((note) => {
+  return note.title.toLowerCase() === 'My next trip'.toLowerCase()
+})
 
-// shift and unshift
-// notes.shift()
-// notes.unshift('Note 1')
-
-// notes.splice(0, 6, 'Note 1')
-// console.log(notes)
-
-for (let index = 0; index < notes.length; index++) {
-  console.log(notes[index])
-}
-
-const found = notes.find((note) => note === 'Note 1')
 console.log(found)
