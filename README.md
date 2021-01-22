@@ -1,2 +1,1 @@
 # Modern JS Bootcamp
-JavaScript
