@@ -13,8 +13,11 @@ const notes = [
   }
 ]
 
-const found = notes.find((note) => {
-  return note.title.toLowerCase() === 'My next trip'.toLowerCase()
-})
+const findNote = (notes, noteTitle) => {
+  return notes.find((note, index) => {
+    return note.title.toLowerCase() === noteTitle.toLowerCase()
+  })
+}
 
-console.log(found)
+const notesResult = findNote(notes, `My next trip`)
+console.log(notesResult)

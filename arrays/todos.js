@@ -1,10 +1,38 @@
-const todos = ['Get thru training', 'Call Mom', 'Walk the dog']
-const remainingTodosMessage = `You have ${todos.length} todos left to finish.`
+const { v4: uuidv4 } = require('uuid')
 
-console.log(remainingTodosMessage)
-console.log(todos.splice(2, 1, 'Buy cat food'))
+const todos = [
+  {
+    id: uuidv4(),
+    text: 'Get thru training',
+    completed: true
+  },
+  {
+    id: uuidv4(),
+    text: 'Call Mom',
+    completed: true
+  },
+  {
+    id: uuidv4(),
+    text: 'Walk the dog',
+    completed: false
+  }
+]
 
-let count = 1
-todos.forEach((todo) => {
-  console.log(`${count++}. ${todo}`)
-})
+const removeTodos = (todos, todoText) => {
+  const todoIndex = todos.findIndex((todo) => {
+    return todo.text.toLowerCase() === todoText.toLowerCase()
+  })
+
+  return todos.splice(todoIndex, 1)
+}
+
+const todosResult = removeTodos(todos, `Walk the dog`)
+console.log(todosResult)
+
+// ====== LOG START ======
+console.log('\n')
+console.group('The Todos')
+console.log(todos)
+console.groupEnd()
+console.log('\n')
+// ====== LOG END ======
